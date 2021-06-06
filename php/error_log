@@ -1,0 +1,21 @@
+[05-Nov-2018 09:25:36 America/New_York] PHP Parse error:  syntax error, unexpected 'die' (T_EXIT) in /home/avogahol/public_html/beta/php/form_contact.php on line 12
+[05-Nov-2018 09:26:00 America/New_York] PHP Warning:  Illegal string offset 'value' in /home/avogahol/public_html/beta/php/form_contact.php on line 9
+[05-Nov-2018 09:26:39 America/New_York] PHP Warning:  Illegal string offset 'value' in /home/avogahol/public_html/beta/php/form_contact.php on line 9
+[10-Nov-2018 11:57:36 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/beta/php/form_booking.php on line 5
+[10-Nov-2018 11:57:37 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/beta/php/form_booking.php on line 5
+[10-Nov-2018 11:58:29 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/beta/php/form_booking.php on line 5
+[14-Jan-2020 07:42:32 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[14-Jan-2020 07:46:39 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[14-Jan-2020 07:49:50 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[14-Jan-2020 11:33:14 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[14-Jan-2020 11:33:32 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:03:35 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:25:53 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:27:16 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:35:38 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:38:26 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:47:27 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:55:46 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 05:58:50 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 06:00:35 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
+[24-Jan-2020 10:02:22 America/New_York] PHP Fatal error:  Call to undefined function trimtrim() in /home/avogahol/public_html/php/form_booking.php on line 5
