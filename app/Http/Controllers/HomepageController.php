@@ -24,7 +24,7 @@ class HomepageController extends Controller
      */
     public function create()
     {
-        //
+        return view('homepage.create');
     }
 
     /**
