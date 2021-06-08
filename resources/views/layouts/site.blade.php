@@ -108,8 +108,9 @@
                   class="fab fa-whatsapp" alt="whatspp" id="whatsapp-mb"></i></a>
               <a href="tel:+947-1883-1632"><i class="icon-phone"></i></i> UK</a><a href="tel:+94773626506"><i
                   class="icon-phone"></i> LK</a>
-              <button class="btn-show navbar-toggler float-right btn-contact" id="button-contact"><span
+              <button class="btn-show navbar-toggler float-right btn-contact" id="mobile-ti"><span
                   class="ti-menu"></span></button>
+
 
             </div>
 
@@ -117,7 +118,7 @@
 
               <div id="menu-toggle" class="nav-toggle">Menu</div>
 
-              <button id="mobile-ti" class="btn-show navbar-toggler float-right nav-toggle"><span
+              <button id="button-contact" class="btn-show navbar-toggler float-right nav-toggle"><span
                   class="ti-menu"></span></button>
 
               <div class="nav-search">
