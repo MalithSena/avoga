@@ -203,7 +203,7 @@ to add this code somewhere cascading */
     color: #66ff33;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 720px) {
     body {
         flex-direction: column;
         width: 100%;
