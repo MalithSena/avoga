@@ -40,20 +40,7 @@ class HomeValidationRequest extends FormRequest
             'blog1' => 'nullable',
             'blog2' => 'nullable',
             'blog3' => 'nullable',
-            'from_to' => 'nullable',
-            'tour_itinerary' => 'nullable',
-            'introduction' => 'nullable',
-            'gallery_image_1' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'gallery_image_2' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'gallery_image_3' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'gallery_image_4' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'gallery_image_5' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'gallery_image_6' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'extra_image_1' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'extra_image_2' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'extra_image_3' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'extra_image_4' => 'sometimes|mimes:jpg,png,jpeg|max:5048',
-            'map_url' => 'nullable',
+            
         ];
     }
 }
