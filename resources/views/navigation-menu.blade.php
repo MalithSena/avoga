@@ -31,7 +31,7 @@
                 @can('is_admin_or_editor')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
-                        {{ __('Posts') }}
+                        {{ __('Itineraries') }}
                     </x-jet-nav-link>
                 </div>
 
