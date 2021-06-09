@@ -19,18 +19,19 @@ class CreateHomepagesTable extends Migration
             $table->string('tagline_bg');
             $table->string('tagline_sm');
             $table->string('link_redirect')->nullable();
-            $table->text('itinerary1')->nullable();
-            $table->text('itinerary2')->nullable();
-            $table->text('itinerary3')->nullable();
-            $table->text('itinerary4')->nullable();
-            $table->text('itinerary5')->nullable();
-            $table->text('itinerary6')->nullable();
-            $table->text('background_img')->nullable();
+            $table->integer('itinerary1')->nullable();
+            $table->integer('itinerary2')->nullable();
+            $table->integer('itinerary3')->nullable();
+            $table->integer('itinerary4')->nullable();
+            $table->integer('itinerary5')->nullable();
+            $table->integer('itinerary6')->nullable();
+            $table->integer('background_img')->nullable();
             $table->string('promotional_message_h1')->nullable();
             $table->string('promotional_message')->nullable();
             $table->text('blog1')->nullable();
             $table->text('blog2')->nullable();
             $table->text('blog3')->nullable();
+            $table->timestamps();
             
         });
     }
