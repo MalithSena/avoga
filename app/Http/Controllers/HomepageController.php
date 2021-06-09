@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Homepage;
 use Illuminate\Http\Request;
+use App\Http\Requests\HomeValidationRequest;
 
 class HomepageController extends Controller
 {
@@ -55,9 +56,11 @@ class HomepageController extends Controller
      * @param  \App\Models\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Homepage $homepage)
+    public function edit()
     {
-        //
+
+        echo "hello";
+        return view('homepage.index');
     }
 
     /**
@@ -67,9 +70,9 @@ class HomepageController extends Controller
      * @param  \App\Models\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Homepage $homepage)
+    public function update(HomeValidationRequest $request)
     {
-        //
+        dd("hello");
     }
 
     /**
