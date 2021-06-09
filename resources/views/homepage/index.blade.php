@@ -120,7 +120,7 @@
                             <option value="">itinerary5</option>
 
                         </select>
-                        @error('similar')
+                        @error('itinerary5')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
@@ -148,21 +148,21 @@
                     </div>
 
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="tagline_sm" class="block font-medium text-sm text-gray-700">Promotional
+                        <label for="promotional_message_h1" class="block font-medium text-sm text-gray-700">Promotional
                             Message Heading</label>
                         <input type="text" name="promotional_message_h1" id="promotional_message_h1" type="text"
                             class="form-input rounded-md shadow-sm mt-1 block w-full" />
-                        @error('tagline_sm')
+                        @error('promotional_message_h1')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        <label for="tagline_sm" class="block font-medium text-sm text-gray-700">Promotional
+                        <label for="promotional_message" class="block font-medium text-sm text-gray-700">Promotional
                             Message</label>
                         <input type="text" name="promotional_message" id="promotional_message" type="text"
                             class="form-input rounded-md shadow-sm mt-1 block w-full" />
-                        @error('tagline_sm')
+                        @error('promotional_message')
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
