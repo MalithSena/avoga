@@ -28,9 +28,9 @@ class CreateHomepagesTable extends Migration
             $table->integer('background_img')->nullable();
             $table->string('promotional_message_h1')->nullable();
             $table->string('promotional_message')->nullable();
-            $table->text('blog1')->nullable();
-            $table->text('blog2')->nullable();
-            $table->text('blog3')->nullable();
+            $table->integer('blog1')->nullable();
+            $table->integer('blog2')->nullable();
+            $table->integer('blog3')->nullable();
             $table->timestamps();
             
         });
