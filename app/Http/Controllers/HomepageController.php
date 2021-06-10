@@ -15,7 +15,8 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('homepage.index');
+        $homepages = Homepage::all();
+        return view('homepage.index', compact('homepages'));
     }
 
     /**
@@ -59,7 +60,7 @@ class HomepageController extends Controller
     public function edit()
     {
 
-        echo "hello";
+        
         return view('homepage.index');
     }
 
@@ -70,9 +71,9 @@ class HomepageController extends Controller
      * @param  \App\Models\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function update(HomeValidationRequest $request)
+    public function update(HomeValidationRequest $request, $homepage)
     {
-        dd("hello");
+    
     }
 
     /**
