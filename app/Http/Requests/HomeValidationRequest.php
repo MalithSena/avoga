@@ -39,8 +39,7 @@ class HomeValidationRequest extends FormRequest
             'promotional_message' => 'nullable',
             'blog1' => 'nullable',
             'blog2' => 'nullable',
-            'blog3' => 'nullable',
-            
+            'blog3' => 'nullable',            
         ];
     }
 }
