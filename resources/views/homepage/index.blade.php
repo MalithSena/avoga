@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Posts List
+            Home pages List
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <a href="{{ route('homepage.create') }}"
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Post</a>
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Home Page</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -53,16 +53,16 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ asset($homepage->create_at) }}
+                                            {{ $homepage->created_at->diffForHumans()}}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('posts.show', $homepage->id) }}"
+                                            <a href="{{ route('homepage.show', $homepage->id) }}"
                                                 class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                            <a href="{{ route('posts.edit', $homepage->id) }}"
+                                            <a href="{{ route('homepage.edit', $homepage->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
                                             <form class="inline-block"
-                                                action="{{ route('posts.destroy', $homepage->id) }}" method="POST"
+                                                action="{{ route('homepage.destroy', $homepage->id) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
