@@ -25,6 +25,7 @@ class HomeValidationRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required',
             'video' => 'sometimes|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
             'tagline_bg' => 'nullable',
             'tagline_sm' => 'nullable',
