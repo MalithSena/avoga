@@ -108,9 +108,46 @@ class HomepageController extends Controller
      * @param  \App\Models\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function update(HomeValidationRequest $request, $homepage)
+    public function update(HomeValidationRequest $request, $id)
     {
-    
+         $request->validated();
+
+        if ($request->background_img) {
+            $newBackgroundImage = time() . '-back' . $request->title . '.' . $request->background_img->extension();
+            $request->background_img->move(public_path('images'), $newBackgroundImage);
+         } else {
+            $newBackgroundImage = "no-image-icon.png";
+        }
+
+
+        if ($request->video) {
+            $newVideo = time() . '-back' . $request->title . '.' . $request->video->extension();
+            $request->video->move(public_path('images'), $newBackgroundImage);
+        } else {
+            $newVideo= "no-image-icon.png";
+        }
+
+        Homepage::where('id', $id)->update([
+            'name' => $request->input('name'),
+            'video' => $newVideo,
+            'tagline_bg' => $request->input('tagline_bg'),
+            'tagline_sm' => $request->input('tagline_sm'),
+            'link_redirect' => $request->input('link_redirect'),
+            'itinerary1' => $request->input('itinerary1'),
+            'itinerary2' => $request->input('itinerary2'),
+            'itinerary3' => $request->input('itinerary3'),
+            'itinerary4' => $request->input('itinerary4'),
+            'itinerary5' => $request->input('itinerary5'),
+            'itinerary6' => $request->input('itinerary6'),            
+            'background_img' => $newBackgroundImage,
+            'promotional_message_h1' => $request->input('promotional_message_h1'),
+            'promotional_message' => $request->input('tagline_bg'),
+            'blog1' => $request->input('blog1'),
+            'blog2' => $request->input('blog2'),
+            'blog3' => $request->input('blog3')
+        ]);
+
+        return redirect('homepage');
     }
 
     /**
