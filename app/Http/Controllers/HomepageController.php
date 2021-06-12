@@ -39,8 +39,24 @@ class HomepageController extends Controller
     {
         $request->validated();
 
+        if ($request->background_img) {
+            $newBackgroundImage = time() . '-back' . $request->title . '.' . $request->background_img->extension();
+            $request->background_img->move(public_path('images'), $newBackgroundImage);
+         } else {
+            $newBackgroundImage = "no-image-icon.png";
+        }
+
+
+        if ($request->video) {
+            $newVideo = time() . '-back' . $request->title . '.' . $request->video->extension();
+            $request->video->move(public_path('images'), $newBackgroundImage);
+        } else {
+            $newVideo= "no-image-icon.png";
+        }
+
         Homepage::create([
-            'video' => 'sometimes|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
+            'name' => $request->input('name'),
+            'video' => $newVideo,
             'tagline_bg' => $request->input('tagline_bg'),
             'tagline_sm' => $request->input('tagline_sm'),
             'link_redirect' => $request->input('link_redirect'),
@@ -50,7 +66,7 @@ class HomepageController extends Controller
             'itinerary4' => $request->input('itinerary4'),
             'itinerary5' => $request->input('itinerary5'),
             'itinerary6' => $request->input('itinerary6'),            
-            'background_img' => $request->input('background_img'),
+            'background_img' => $newBackgroundImage,
             'promotional_message_h1' => $request->input('promotional_message_h1'),
             'promotional_message' => $request->input('tagline_bg'),
             'blog1' => $request->input('blog1'),
@@ -70,7 +86,8 @@ class HomepageController extends Controller
      */
     public function show(Homepage $homepage)
     {
-        //
+        $title = 'Home';
+        return view('homepage.show', compact('title', 'homepage'));
     }
 
     /**
@@ -80,9 +97,7 @@ class HomepageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit()
-    {
-
-        
+    {        
         return view('homepage.index');
     }
 
