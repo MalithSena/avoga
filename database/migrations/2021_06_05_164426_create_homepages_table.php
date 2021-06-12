@@ -15,6 +15,7 @@ class CreateHomepagesTable extends Migration
     {
         Schema::create('homepages', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->text('video')->nullable();
             $table->string('tagline_bg');
             $table->string('tagline_sm');
@@ -25,7 +26,7 @@ class CreateHomepagesTable extends Migration
             $table->integer('itinerary4')->nullable();
             $table->integer('itinerary5')->nullable();
             $table->integer('itinerary6')->nullable();
-            $table->integer('background_img')->nullable();
+            $table->text('background_img')->nullable();
             $table->string('promotional_message_h1')->nullable();
             $table->string('promotional_message')->nullable();
             $table->integer('blog1')->nullable();

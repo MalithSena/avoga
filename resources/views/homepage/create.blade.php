@@ -11,6 +11,16 @@
                 <form method="post" action="{{ route('homepage.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
+                            <input type="text" name="name" id="name" type="text"
+                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            @error('name')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="video" class="block font-medium text-sm text-gray-700">Video</label>
                             <input type="file" name="video" id="video" type="file"
