@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Homepage;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\HomeValidationRequest;
 
@@ -84,10 +85,10 @@ class HomepageController extends Controller
      * @param  \App\Models\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function show(Homepage $homepage)
+    public function show(Homepage $homepage, Post $post)
     {
         $title = 'Home';
-        return view('homepage.show', compact('title', 'homepage'));
+        return view('homepage.show', compact('title', 'homepage', 'post'));
     }
 
     /**
@@ -158,6 +159,7 @@ class HomepageController extends Controller
      */
     public function destroy(Homepage $homepage)
     {
-        //
+        $homepage->delete();
+        return redirect()->route('homepage.index');
     }
 }
