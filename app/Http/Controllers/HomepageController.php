@@ -50,13 +50,15 @@ class HomepageController extends Controller
 
         if ($request->video) {
             $newVideo = time() . '-back' . $request->title . '.' . $request->video->extension();
-            $request->video->move(public_path('images'), $newBackgroundImage);
+            $request->video->move(public_path('images'), $newVideo);
         } else {
             $newVideo= "no-image-icon.png";
         }
 
         Homepage::create([
             'name' => $request->input('name'),
+            'contact_no_1' => $request->input('contact_no_1'),
+            'contact_no_2' => $request->input('contact_no_2'),
             'video' => $newVideo,
             'tagline_bg' => $request->input('tagline_bg'),
             'tagline_sm' => $request->input('tagline_sm'),
