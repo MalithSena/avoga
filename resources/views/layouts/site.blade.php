@@ -98,16 +98,18 @@
               <a target="_blank"
                 href="https://wa.me/94718831632?text=I'm%20interested%20in%20visiting%20Sri%20Lanka.%20Please send%20me%20further%20information"><i
                   class="fab fa-whatsapp" alt="whatspp" id="whatsapp"></i></a>
-              <a href="tel:+947-1883-1632"><i class="icon-phone"></i></i> +947-1883-1632</a><a
-                href="tel:+94773626506"><i class="icon-phone"></i> +947-7362-6506</a>
+              <a href="tel:+{{ $homepage->contact_no_1 }}"><i class="icon-phone"></i></i>
+                +{{ $homepage->contact_no_1 }}</a><a href="tel:+{{ $homepage->contact_no_2 }}"><i
+                  class="icon-phone"></i>
+                +{{ $homepage->contact_no_1 }}</a>
 
             </div>
             <div class="clearfix float-right contact-head" id="contact-head-mb">
               <a target="_blank"
                 href="https://wa.me/94718831632?text=I'm%20interested%20in%20visiting%20Sri%20Lanka.%20Please send%20me%20further%20information"><i
                   class="fab fa-whatsapp" alt="whatspp" id="whatsapp-mb"></i></a>
-              <a href="tel:+947-1883-1632"><i class="icon-phone"></i></i> UK</a><a href="tel:+94773626506"><i
-                  class="icon-phone"></i> LK</a>
+              <a href="tel:+{{ $homepage->contact_no_1 }}"><i class="icon-phone"></i></i> UK</a><a
+                href="tel:+{{ $homepage->contact_no_2 }}"><i class="icon-phone"></i> LK</a>
               <button class="btn-show navbar-toggler float-right btn-contact" id="mobile-ti"><span
                   class="ti-menu"></span></button>
 
@@ -223,7 +225,8 @@
           <div class="col-md-3">
             <div class="footer-item">
               <ul class="mb-20">
-                <li><a href="tel:+947-1883-1632">Tel: +947-1883-1632</a><a href="tel:+94773626506">|| +947-7362-6506</a>
+                <li><a href="tel:+{{ $homepage->contact_no_1 }}">Tel: +{{ $homepage->contact_no_1 }}</a><a
+                    href="tel:+94773626506">|| +947-7362-6506</a>
                 </li>
                 <li class="mt-10"><a href="mailto:">inquiries@avogaholidays.com</a></li>
                 <li class="mt-10">227/3, Nalinpriya Mawatha, Siyabalagoda, Polgasowita</li>

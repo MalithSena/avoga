@@ -22,6 +22,26 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="contact_no_1" class="block font-medium text-sm text-gray-700">Contact Number
+                                1</label>
+                            <input type="tel" name="contact_no_1" id="contact_no_1" type="tel"
+                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            @error('contact_no_1')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="contact_no_2" class="block font-medium text-sm text-gray-700">Contact Number
+                                2</label>
+                            <input type="tel" name="contact_no_2" id="contact_no_2" type="tel"
+                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            @error('contact_no_2')
+                            <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="video" class="block font-medium text-sm text-gray-700">Video</label>
                             <input type="file" name="video" id="video" type="file"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full" />

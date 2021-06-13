@@ -8,14 +8,14 @@
         <div class="caption-top caption-top-mb" style="margin-bottom: 20%" data-timeout="800">
             {{-- The text class mentioned before is custom made by developer. It's not inheriting from the original template --}}
             <div class="text page-head-caption container">
-                <h2>Avoga Holidays</h3>
+                <h2>{{ $homepage->tagline_bg }}</h3>
                     {{-- <h2 style="text-shadow: 2px 2px 5px  #363636;" class="big-title mb-10 animate" data-animation="fadeInRight" data-timeout="800">Avoga Holidays</h2> --}}
-                    <h3>Discover Sri Lanka</h3>
+                    <h3>{{ $homepage->tagline_sm }}</h3>
                     {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat.</p> --}}
-                    <a href="#packages">Explore More</a>
+                    <a href="#packages">{{ $homepage->link_redirect }}</a>
             </div>
         </div>
 
