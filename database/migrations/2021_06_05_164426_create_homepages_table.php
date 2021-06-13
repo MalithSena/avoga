@@ -16,6 +16,8 @@ class CreateHomepagesTable extends Migration
         Schema::create('homepages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('contact_no_1');
+            $table->string('contact_no_2');
             $table->text('video')->nullable();
             $table->string('tagline_bg');
             $table->string('tagline_sm');
