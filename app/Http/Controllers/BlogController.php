@@ -14,7 +14,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $title = "Avoga Holidays || Blog";
+        $blogs = Blog::all();
+        return view('blog.index', compact('blogs', 'title'));
     }
 
     /**
@@ -46,7 +48,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        $title = "Avoga Holidays || ".ucfirst($blog->slug);
+        return view('blog.show', compact('blog', 'title'));
     }
 
     /**

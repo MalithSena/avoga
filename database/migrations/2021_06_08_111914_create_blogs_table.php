@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug');
             $table->text('background_img')->nullable();
             $table->text('post_img')->nullable();   
-            $table->string('body');            
+            $table->mediumText('body');            
             $table->timestamps();
         });
     }

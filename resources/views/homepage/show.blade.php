@@ -1,10 +1,10 @@
-@extends('layouts.site')
+@extends('layouts.site2')
 
 @section('content')
 <div class="search-relative search-relatives " id="search-relatives">
 
     <div class="item height25vh" id="vid">
-        <video class="embed-responsive video" src="{{ $homepage->video}}" muted loop autoplay></video>
+        <video class="embed-responsive video" src="{{ asset($homepage->video) }}" muted loop autoplay></video>
         <div class="caption-top caption-top-mb" style="margin-bottom: 20%" data-timeout="800">
             {{-- The text class mentioned before is custom made by developer. It's not inheriting from the original template --}}
             <div class="text page-head-caption container">
@@ -445,11 +445,9 @@
         style="background-image: url('{{ $homepage->background_img }}');">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 style="text-shadow: 2px 2px 5px  #363636;" class="mb-30">Get 15% Off on your first travel</h2>
-                <p style="text-shadow: 2px 2px 5px  #363636;" class="mb-40">We respect relationships and rapport. That's
-                    why
-                    your acquaintance is important to as more than any other priorities in life. Come and grab this
-                    opportunity to experience the unique Avoga way of Tourism. </p>
+                <h2 style="text-shadow: 2px 2px 5px  #363636;" class="mb-30">{{ $homepage->promotional_message_h1 }}
+                </h2>
+                <p style="text-shadow: 2px 2px 5px  #363636;" class="mb-40">{{ $homepage->promotional_message }}</p>
                 <a class="btn btn-1" href="{{ asset('contact') }}">Contact Us</a>
             </div>
         </div>

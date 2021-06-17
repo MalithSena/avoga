@@ -83,8 +83,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary1" class="block font-medium text-sm text-gray-700">Itinerary 1
                             </label>
-                            <input type="text" name="itinerary1" id="itinerary1" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary1" id="itinerary1" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary1')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -93,8 +98,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary2" class="block font-medium text-sm text-gray-700">Itinerary 2
                             </label>
-                            <input type="text" name="itinerary2" id="itinerary2" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary2" id="itinerary2" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary2')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -103,8 +113,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary3" class="block font-medium text-sm text-gray-700">Itinerary 3
                             </label>
-                            <input type="text" name="itinerary3" id="itinerary3" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary3" id="itinerary3" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary3')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -113,8 +128,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary4" class="block font-medium text-sm text-gray-700">Itinerary 4
                             </label>
-                            <input type="text" name="itinerary4" id="itinerary4" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary4" id="itinerary4" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary4')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -123,8 +143,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary5" class="block font-medium text-sm text-gray-700">Itinerary 5
                             </label>
-                            <input type="text" name="itinerary5" id="itinerary5" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary5" id="itinerary5" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary5')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -133,8 +158,13 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="itinerary6" class="block font-medium text-sm text-gray-700">Itinerary 6
                             </label>
-                            <input type="text" name="itinerary6" id="itinerary6" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <select name="itinerary6" id="itinerary6" class="form-control">
+                                @foreach ($posts as $post)
+                                <option value="{{ $post->id }}">
+                                    {{ $post->title }}
+                                </option>
+                                @endforeach
+                            </select>
                             @error('itinerary6')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -173,10 +203,16 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="similar" class="block font-medium text-sm text-gray-700">Blog 1</label>
+                            <label for="blog1" class="block font-medium text-sm text-gray-700">Blog 1</label>
+                            {{-- {{ $post->find($similar)->title }} --}}
                             <select name="blog1" id="blog1" class="form-control">
-                                <option value=""></option>
+                                @foreach ($blogs as $blog)
+                                <option value="{{ $blog->id }}">
+                                    {{ $blog->title }}
+                                </option>
+                                @endforeach
                             </select>
+
                             @error('blog1')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -184,9 +220,15 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="blog2" class="block font-medium text-sm text-gray-700">Blog 2</label>
+                            {{-- {{ $post->find($similar)->title }} --}}
                             <select name="blog2" id="blog2" class="form-control">
-                                <option value=""></option>
+                                @foreach ($blogs as $blog)
+                                <option value="{{ $blog->id }}">
+                                    {{ $blog->title }}
+                                </option>
+                                @endforeach
                             </select>
+
                             @error('blog2')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -194,9 +236,15 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="blog3" class="block font-medium text-sm text-gray-700">Blog 3</label>
+                            {{-- {{ $post->find($similar)->title }} --}}
                             <select name="blog3" id="blog3" class="form-control">
-                                <option value=""></option>
+                                @foreach ($blogs as $blog)
+                                <option value="{{ $blog->id }}">
+                                    {{ $blog->title }}
+                                </option>
+                                @endforeach
                             </select>
+
                             @error('blog3')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror

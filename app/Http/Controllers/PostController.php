@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Homepage;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostValidationRequest;
 
@@ -16,7 +17,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        $homepage = Homepage::all();
+        return view('posts.index', compact('posts', 'homepage'));
     }
 
     /**
@@ -109,7 +111,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post, Homepage $homepage)
     {
         $title = ucfirst($post->title) . " || Avoga Holidays";
         $from = explode(",,", $post->from_to);
@@ -117,7 +119,7 @@ class PostController extends Controller
         $points = explode(",,", $post->tips);
         $similar = explode(",,", $post->similar);
         $galleries = explode(",,", $post->gallery_images);
-        return view('posts.show', compact('post', 'title', 'from', 'destined', 'points', 'similar', 'galleries'));
+        return view('posts.show', compact('post','homepage', 'title', 'from', 'destined', 'points', 'similar', 'galleries'));
     }
 
     /**
@@ -126,7 +128,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post, Homepage $homepage)
     {
         $similar_posts = Post::all();
 
@@ -138,8 +140,10 @@ class PostController extends Controller
         $galleries = explode(",,", $post->gallery_images);
         $details = array_combine($from, $destined);
 
-        return view('posts.edit', compact('similar_posts', 'post', 'title', 'from', 'destined', 'points', 'similar', 'galleries', 'details'));
+        return view('posts.edit', compact('similar_posts', 'post', 'homepage','title', 'from', 'destined', 'points', 'similar', 'galleries', 'details'));
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -277,8 +281,6 @@ class PostController extends Controller
             }
             $similar = $values;
         }
-
-
 
         Post::where('id', $id)->update([
             'title' => $request->input('title'),

@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ItineraryController;
 use App\Http\Controllers\MailController;
 
@@ -34,10 +35,10 @@ Route::get('/about', function () {
     return view('about', compact('title'));
 });
 
-Route::get('/blog', function () {
-    $title = "Avoga Holidays || Blog";
-    return view('blog', compact('title'));
-});
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
+   
+
 
 Route::get('/testimonials', function () {
     $title = "Avoga Holidays || Testimonials";

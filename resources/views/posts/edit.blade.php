@@ -68,22 +68,20 @@
 
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <label for="similar" class="block font-medium text-sm text-gray-700">Similar</label>
-
+                        {{-- {{ $post->find($similar)->title }} --}}
                         @for($i=1; $i < 4; $i++) <select name="similar[]" id="similar" class="form-control">
                             @foreach ($similar_posts as $value)
-                            <option value="{{$value->id}}">{{$value->title}}</option>
+                            <option value="{{ $value->id }}" @if ($similar !=NULL || $similar_posts->find($similar[$i-1]
+                                == $value->id)) selected="selected" @endif>
+                                {{ $value->title }}
+                            </option>
                             @endforeach
                             </select>
                             @endfor
-
-
                             @error('similar')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                     </div>
-
-
-
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <label for="days" class="block font-medium text-sm text-gray-700">Total Days</label>
                         <input type="text" name="days" id="days" type="text"
