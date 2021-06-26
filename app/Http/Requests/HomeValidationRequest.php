@@ -28,7 +28,7 @@ class HomeValidationRequest extends FormRequest
             'name' => 'required',
             'contact_no_1' => 'nullable',
             'contact_no_2' => 'nullable',
-            'video' => 'sometimes|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
+            'video' => 'sometimes|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,video/mp4v-es,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
             'tagline_bg' => 'nullable',
             'tagline_sm' => 'nullable',
             'link_redirect' => 'nullable',
@@ -43,7 +43,8 @@ class HomeValidationRequest extends FormRequest
             'promotional_message' => 'nullable',
             'blog1' => 'nullable',
             'blog2' => 'nullable',
-            'blog3' => 'nullable',            
+            'blog3' => 'nullable', 
+            'is_true'=>'nullable',           
         ];
     }
 }
