@@ -11,6 +11,13 @@
                 <a href="{{ route('homepage.create') }}"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Home Page</a>
             </div>
+            <div class="block mb-8">
+                {{-- <form action="{{ route('homepage.update_homepage') }}">
+                <input type="hidden" name="radio_value" , value="{{  }}">
+                <input type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    value="Set Home Page">
+                </form> --}}
+            </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -18,6 +25,10 @@
                             <table class="min-w-full divide-y divide-gray-200 w-full">
                                 <thead>
                                     <tr>
+                                        {{-- <th scope="col" width="50"
+                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            SELECT
+                                        </th> --}}
                                         <th scope="col" width="50"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             ID
@@ -37,8 +48,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
+
                                     @foreach ($homepages as $homepage)
                                     <tr>
+                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            <input type="radio" class="disabled:opacity-50" name="homepage_radio"
+                                                id="{{ $homepage->id }}" value="{{ $homepage->is_active }}"
+                                        {{ $homepage->is_true == "0" ? "disabled" : "checked" }}>
+                                        </td> --}}
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $homepage->id }}
                                         </td>
@@ -70,8 +88,31 @@
                                                     value="Delete">
                                             </form>
                                         </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <form action="{{ route('homepage.attach', $homepage->id) }}" method="POST">
+                                                @method('PUT')
+                                                @csrf
+                                                <input type="hidden" name="is_true" value=1>
+                                                <input type="submit"
+                                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+                                                    value="Attach" {{ $homepage->is_true == "1" ? "disabled" : "" }}>
+                                            </form>
+                                        </td>
+
+                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <form action="{{ route('homepage.detach', $homepage->id) }}" method="POST">
+                                        @method('PUT')
+                                        @csrf
+                                        <input type="hidden" name="is_true" value=0>
+                                        <input type="submit"
+                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
+                                            value="Detach" {{ $homepage->is_true == "0" ? "disabled" : ""
+                                                    }}>
+                                        </form>
+                                        </td> --}}
+                                        @endforeach
                                     </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
