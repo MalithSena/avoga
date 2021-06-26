@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Homepage;
 use App\Models\Post;
 use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\HomeValidationRequest;
 
@@ -157,6 +158,32 @@ class HomepageController extends Controller
         ]);
 
         return redirect('homepage');
+    }
+
+    public function attach(Request $request, $id){
+        $homepage = Homepage::find($id);
+        //  $request->validated();
+        if($request->is_true){
+           $value =  Homepage::where('is_true', 1)->decrement('is_true', 1);
+        }    
+
+        Homepage::where('id', $id)->update([
+            'is_true' => $request->input('is_true'),
+        ]);
+
+        return redirect('homepage');
+    }
+
+    public function detach(Request $request, $id){
+        $homepage = Homepage::find($id);
+        //  $request->validated();
+        
+        Homepage::where('id', $id)->update([
+            'is_true' => $request->input('is_true'),
+            // $billingPlan->default_plan = ($request->input('default_plan'))?:null;
+     ]);
+        return redirect('homepage');
+       
     }
 
     /**
