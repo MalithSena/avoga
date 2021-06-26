@@ -34,6 +34,7 @@ class CreateHomepagesTable extends Migration
             $table->integer('blog1')->nullable();
             $table->integer('blog2')->nullable();
             $table->integer('blog3')->nullable();
+            $table->boolean('is_true')->default(0);
             $table->timestamps();
             
         });
