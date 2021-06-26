@@ -142,7 +142,7 @@
                         <p class="text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
-                    @if(empty($post->from_to) && empty($post->tour_itinerary))
+                    {{-- @if(empty($post->from_to) && empty($post->tour_itinerary))
                     <div class="px-4 py-5 bg-white sm:p-6">
                         @for($i=1;$i < $post->days + 1; $i++)
                             <label for="from_to" class="block font-medium text-sm text-gray-700">From - To</label>
@@ -156,23 +156,23 @@
 
                             @endfor
                     </div>
-                    @else
+                    @else --}}
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        @for($i=1;$i < $post->days + 1; $i++)
+                        @for($i=0; $i < $post->days; $i++)
                             <label for="from_to" class="block font-medium text-sm text-gray-700">From - To</label>
 
                             <input type="text" name="from_to[]" id="from_to" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value=" {{  old('from_to', $from[$i-1]) }} " />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{  
+                                old('from_to', $from[$i] ?? "" )}}" />
                             <label for="tour_itinerary" class="block font-medium text-sm text-gray-700">Tour
                                 Itinerary</label>
                             <input type="text" name="tour_itinerary[]" id="tour_itinerary" type="text"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value="{{ old('tour_itinerary', $destined[$i-1]) }}" />
+                                value="{{ old('tour_itinerary', $destined[$i] ?? "") }}" />
 
                             @endfor
                     </div>
-                    @endif
+                    {{-- @endif --}}
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <label for="map_url" class="block font-medium text-sm text-gray-700">Map URL</label>
                         <input type="text" name="map_url" id="map_url" type="text"
