@@ -22,7 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/itineraries', [ItineraryController::class, 'index'])->name('itineraries');
 
-Route::get('/itineraries/{id}', [ItineraryController::class, 'show'])->name('itinerary');
+Route::get('/itineraries/{post}', [ItineraryController::class, 'show'])->name('itinerary');
 
 Route::get('/destinations/{destination}', function ($destination) {
     $title = "Avoga Holidays || " . ucfirst($destination);
@@ -71,4 +71,5 @@ Route::group(['middleware' => 'auth.is_admin'], function () {
 Route::group(['middleware' => 'auth.is_Ad_Or_Ed'], function () {
     Route::resource('posts', App\Http\Controllers\PostController::class);
     Route::resource('homepage', App\Http\Controllers\HomepageController::class);
-});
+    Route::put('homepage/{id}/attach', [App\Http\Controllers\HomepageController::class, 'attach'])->name('homepage.attach');
+    });
