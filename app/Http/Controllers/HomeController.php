@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Homepage;
 
 
 
@@ -14,11 +16,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index(Post $post, User $user, Homepage $homepage)
     {
 
         $title = 'Avoga Holidays';
-        return view('home', compact('title', 'post'));
+        $homepage = Homepage::where('is_true', '=', 1)->first();
+        return view('home', compact('title', 'post', 'homepage', 'title', ));
     }
 
     /**
