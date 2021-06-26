@@ -22,7 +22,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request)
+public function store(Request $request)
     {
         $user = User::create($request->validated());
         $user->roles()->sync($request->input('roles', []));
