@@ -174,17 +174,7 @@ class HomepageController extends Controller
         return redirect('homepage');
     }
 
-    public function detach(Request $request, $id){
-        $homepage = Homepage::find($id);
-        //  $request->validated();
-        
-        Homepage::where('id', $id)->update([
-            'is_true' => $request->input('is_true'),
-            // $billingPlan->default_plan = ($request->input('default_plan'))?:null;
-     ]);
-        return redirect('homepage');
-       
-    }
+    
 
     /**
      * Remove the specified resource from storage.
