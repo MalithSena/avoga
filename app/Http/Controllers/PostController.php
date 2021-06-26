@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->get();
         $homepage = Homepage::all();
         return view('posts.index', compact('posts', 'homepage'));
     }
@@ -49,31 +49,37 @@ class PostController extends Controller
         $post_image = time() . '-' . $request->title . '.' . $request->post_image->extension();
         $request->post_image->move(public_path('images'), $post_image);
 
-        $tips = "";
-        $tips_input = $request->input('tips');
-        if ($request->tips) {
-            for ($i = 1; $i < count($tips_input) + 1; $i++) {
-                $values  = join(",,", $tips_input);
-            }
-            $tips = $values;
-        }
+        // $tips = "";
+        // $tips_input = $request->input('tips');
+        // if ($request->tips) {
+        //     for ($i = 1; $i < count($tips_input) + 1; $i++) {
+        //         $values  = join(",,", $tips_input);
+        //     }
+        //     $tips = $values;
+        // }
 
-        $from_to = "";
+        // $from_to = "";
 
-        if ($request->from_to) {
-            for ($i = 1; $i < count($request->input['from_to']) + 1; $i++) {
-                $values  = join(",,", $request->input['from_to']);
-            }
-            $from_to = $values;
-        }
+        // if ($request->from_to == null) {
+        //     $from_to = "";
+        // }
+        // else{
+        //     for ($i = 1; $i < count($request->input['from_to']) + 1; $i++) {
+        //         $values  = join(",,", $request->input['from_to']);
+        //     }
+        //     $from_to = $values;
+        // }
 
-        $tour_itinerary = "";
-        if ($request->tour_itinerary) {
-            for ($i = 1; $i < count($request->input['tour_itinerary']) + 1; $i++) {
-                $values  = join(",,", $request->input['tour_itinerary']);
-            }
-            $tour_itinerary = $values;
-        }
+        // $tour_itinerary = "";
+        // if ($request->tour_itinerary == null) {
+        //     $tour_itinerary = "";
+        // }
+        // else{
+        //     for ($i = 1; $i < count($request->input['tour_itinerary']) + 1; $i++) {
+        //         $values  = join(",,", $request->input['tour_itinerary']);
+        //     }
+        //     $tour_itinerary = $values;
+        // }
 
 
         Post::create([
@@ -81,25 +87,25 @@ class PostController extends Controller
             'slug' => $request->input('slug'),
             'background_img' => $background_img,
             'post_image' => $post_image,
-            'similar' => $request->input('similar'),
+            // 'similar' => $request->input('similar'),
             'days' => $request->input('days'),
-            'tagline' => $request->input('tagline'),
-            'description' => $request->input('description'),
-            'tips' => $tips,
-            'from_to' => $from_to,
-            'tour_itinerary' => $tour_itinerary,
-            'introduction' => $request->input('introduction'),
-            'gallery_image_1' => $request->input('gallery_image_1'),
-            'gallery_image_2' => $request->input('gallery_image_2'),
-            'gallery_image_3' => $request->input('gallery_image_3'),
-            'gallery_image_4' => $request->input('gallery_image_4'),
-            'gallery_image_5' => $request->input('gallery_image_5'),
-            'gallery_image_6' => $request->input('gallery_image_6'),
-            'extra_image_1' => $request->input('extra_image_1'),
-            'extra_image_2' => $request->input('extra_image_2'),
-            'extra_image_3' => $request->input('extra_image_3'),
-            'extra_image_4' => $request->input('extra_image_4'),
-            'map_url' => $request->input('map_url'),
+            // 'tagline' => $request->input('tagline'),
+            // 'description' => $request->input('description'),
+            // 'tips' => $tips,
+            // 'from_to' => $from_to,
+            // 'tour_itinerary' => $tour_itinerary,
+            // 'introduction' => $request->input('introduction'),
+            // 'gallery_image_1' => $request->input('gallery_image_1'),
+            // 'gallery_image_2' => $request->input('gallery_image_2'),
+            // 'gallery_image_3' => $request->input('gallery_image_3'),
+            // 'gallery_image_4' => $request->input('gallery_image_4'),
+            // 'gallery_image_5' => $request->input('gallery_image_5'),
+            // 'gallery_image_6' => $request->input('gallery_image_6'),
+            // 'extra_image_1' => $request->input('extra_image_1'),
+            // 'extra_image_2' => $request->input('extra_image_2'),
+            // 'extra_image_3' => $request->input('extra_image_3'),
+            // 'extra_image_4' => $request->input('extra_image_4'),
+            // 'map_url' => $request->input('map_url'),
         ]);
 
         return redirect('posts');
@@ -114,8 +120,10 @@ class PostController extends Controller
     public function show(Post $post, Homepage $homepage)
     {
         $title = ucfirst($post->title) . " || Avoga Holidays";
-        $from = explode(",,", $post->from_to);
-        $destined = explode(",,", $post->tour_itinerary);
+        // $from = explode(",,", $post->from_to);
+        $from = json_decode($post->from_to, true);
+        // $destined = explode(",,", $post->tour_itinerary);
+        $destined = json_decode($post->tour_itinerary, true);
         $points = explode(",,", $post->tips);
         $similar = explode(",,", $post->similar);
         $galleries = explode(",,", $post->gallery_images);
@@ -133,14 +141,14 @@ class PostController extends Controller
         $similar_posts = Post::all();
 
         $title = ucfirst($post->title) . ' || Avoga Holidays';
-        $from = explode(",,", $post->from_to);
-        $destined = explode(",,", $post->tour_itinerary);
+        // $from = explode(",,", $post->from_to);
+        $from = json_decode($post->from_to);
+        $destined = json_decode($post->tour_itinerary);
         $points = explode(",,", $post->tips);
         $similar = explode(",,", $post->similar);
-        $galleries = explode(",,", $post->gallery_images);
-        $details = array_combine($from, $destined);
 
-        return view('posts.edit', compact('similar_posts', 'post', 'homepage','title', 'from', 'destined', 'points', 'similar', 'galleries', 'details'));
+
+        return view('posts.edit', compact('similar_posts', 'post','from', 'homepage','title', 'destined', 'points', 'similar'));
     }
 
 
@@ -256,23 +264,32 @@ class PostController extends Controller
             $tips = $values;
         }
 
-        $from_to = "";
-        $from_to_input = $request->input(['from_to']);
-        if ($request->input('from_to')) {
-            for ($i = 1; $i < count($from_to_input) + 1; $i++) {
-                $values  = join(",,", $from_to_input);
-            }
-            $from_to = $values;
-        }
+        
 
-        $tour_itinerary = "";
-        $tour_itinerary_input = $request->input(['tour_itinerary']);
-        if ($request->input('tour_itinerary')) {
-            for ($i = 1; $i < count($tour_itinerary_input) + 1; $i++) {
-                $values  = join(",,", $tour_itinerary_input);
-            }
-            $tour_itinerary = $values;
-        }
+        // $from_to = "";
+        // $from_to_input = $request->input(['from_to']);
+        // if ($from_to_input == null || count(array($from_to)) != ($post->days - 1)) {
+        //     // $from_to = "";
+        //     throw new Exception("Value must be 1 or below");
+        // }
+        // else{
+        //     for ($i = 1; $i < count($from_to_input) + 1; $i++) {
+        //         $values  = join(",,", $from_to_input);
+        //     }
+        //     $from_to = $values;
+        // }
+
+        // $tour_itinerary = "";
+        // $tour_itinerary_input = $request->input(['tour_itinerary']);
+        // if ($request->input('tour_itinerary') == null ||  count(array($tour_itinerary)) != ($post->days - 1)) {
+        //     $tour_itinerary = "";
+        // }
+        // else{
+        //     for ($i = 1; $i < count($tour_itinerary_input) + 1; $i++) {
+        //         $values  = join(",,", $tour_itinerary_input);
+        //     }
+        //     $tour_itinerary = $values;
+        // }
         $similar = "";
         $similar_input = $request->input(['similar']);
         if ($request->input('similar')) {
@@ -292,8 +309,9 @@ class PostController extends Controller
             'tagline' => $request->input('tagline'),
             'description' => $request->input('description'),
             'tips' => $tips,
-            'from_to' => $from_to,
-            'tour_itinerary' => $tour_itinerary,
+            // 'from_to' => $from_to,
+            'from_to' => $request->input('from_to'),
+            'tour_itinerary' => $request->input('tour_itinerary'),
             'introduction' => $request->input('introduction'),
             'gallery_image_1' => $newGalleryImage_1,
             'gallery_image_2' => $newGalleryImage_2,
