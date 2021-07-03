@@ -26,8 +26,8 @@ class HomeValidationRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'contact_no_1' => 'nullable',
-            'contact_no_2' => 'nullable',
+            'contact_no_1' => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:12',
+            'contact_no_2' => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:12',
             'video' => 'sometimes|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,video/mp4v-es,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
             'tagline_bg' => 'nullable',
             'tagline_sm' => 'nullable',

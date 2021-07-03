@@ -106,6 +106,8 @@
                     @foreach ($points as $point)
                     <li>{{$point}}</li>
                     @endforeach
+
+
                   </ul>
                 </div>
               </div>
@@ -256,7 +258,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="tour-item">
           @if($post->similar > 0)
-          <a href="{{$tour}}">
+          <a href="{{$post->findOrFail($tour)->id }}">
             @else
             <a href="{{$post->id}}">
               @endif

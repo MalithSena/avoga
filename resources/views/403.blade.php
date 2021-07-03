@@ -1,1 +1,1 @@
-You have no privileges to visit this are
+You have no privileges to visit this area

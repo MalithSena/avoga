@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ItineraryController;
 use App\Http\Controllers\MailController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/itineraries', [ItineraryController::class, 'index'])->name('itineraries');
 
-Route::get('/itineraries/{post}', [ItineraryController::class, 'show'])->name('itinerary');
+Route::get('/itineraries/{post:slug}', [ItineraryController::class, 'show'])->name('itinerary');
 
 Route::get('/destinations/{destination}', function ($destination) {
     $title = "Avoga Holidays || " . ucfirst($destination);
@@ -55,9 +56,11 @@ Route::get('/success', function () {
     return view('success', compact('title'));
 })->name('success');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 
 

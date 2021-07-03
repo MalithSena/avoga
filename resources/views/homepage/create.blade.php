@@ -15,7 +15,7 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
                             <input type="text" name="name" id="name" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old('name') }}" />
                             @error('name')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -25,7 +25,8 @@
                             <label for="contact_no_1" class="block font-medium text-sm text-gray-700">Contact Number
                                 1</label>
                             <input type="tel" name="contact_no_1" id="contact_no_1" type="tel"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('contact_no_1') }}" />
                             @error('contact_no_1')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -35,7 +36,8 @@
                             <label for="contact_no_2" class="block font-medium text-sm text-gray-700">Contact Number
                                 2</label>
                             <input type="tel" name="contact_no_2" id="contact_no_2" type="tel"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('contact_no_2') }}" />
                             @error('contact_no_2')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -43,7 +45,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="video" class="block font-medium text-sm text-gray-700">Video</label>
-                            <input type="file" name="video" id="video" type="file"
+                            <input type="file" name="video" id="video" type="file" value="{{ old('video') }}"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full" />
                             @error('video')
                             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -54,7 +56,8 @@
                             <label for="tagline_bg" class="block font-medium text-sm text-gray-700">Tagline
                                 Heading</label>
                             <input type="text" name="tagline_bg" id="tagline_bg" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('tagline_bg') }}" />
                             @error('tagline_bg')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -64,7 +67,8 @@
                             <label for="tagline_sm" class="block font-medium text-sm text-gray-700">Tagline
                                 Small</label>
                             <input type="text" name="tagline_sm" id="tagline_sm" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('tagline_sm') }}" />
                             @error('tagline_sm')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -74,7 +78,8 @@
                             <label for="link_redirect" class="block font-medium text-sm text-gray-700">Link Redirect
                                 Small</label>
                             <input type="text" name="link_redirect" id="link_redirect" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('link_redirect') }}" />
                             @error('link_redirect')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -169,7 +174,6 @@
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="background_img" class="block font-medium text-sm text-gray-700">Background
                                 Image</label>
@@ -185,7 +189,8 @@
                                 class="block font-medium text-sm text-gray-700">Promotional Message Heading
                             </label>
                             <input type="text" name="promotional_message_h1" id="promotional_message_h1" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('promotional_message_h1') }}" />
                             @error('promotional_message_h1')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -196,7 +201,8 @@
                                 Message
                             </label>
                             <input type="text" name="promotional_message" id="promotional_message" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ old('promotional_message') }}" />
                             @error('promotional_message')
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -217,6 +223,8 @@
                             <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
+
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="blog2" class="block font-medium text-sm text-gray-700">Blog 2</label>
@@ -256,9 +264,6 @@
                                 Create
                             </button>
                         </div>
-
-
-
                     </div>
                 </form>
             </div>

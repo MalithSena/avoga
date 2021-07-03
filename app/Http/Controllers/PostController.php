@@ -124,10 +124,10 @@ class PostController extends Controller
         $from = json_decode($post->from_to, true);
         // $destined = explode(",,", $post->tour_itinerary);
         $destined = json_decode($post->tour_itinerary, true);
-        $points = explode(",,", $post->tips);
-        $similar = explode(",,", $post->similar);
-        $galleries = explode(",,", $post->gallery_images);
-        return view('posts.show', compact('post','homepage', 'title', 'from', 'destined', 'points', 'similar', 'galleries'));
+        $points = json_decode($post->tips);
+        
+        $similar = json_decode($post->similar);
+        return view('posts.show', compact('post','homepage', 'title', 'from', 'destined', 'points', 'similar', ));
     }
 
     /**
@@ -144,8 +144,8 @@ class PostController extends Controller
         // $from = explode(",,", $post->from_to);
         $from = json_decode($post->from_to);
         $destined = json_decode($post->tour_itinerary);
-        $points = explode(",,", $post->tips);
-        $similar = explode(",,", $post->similar);
+        $points = json_decode($post->tips);
+        $similar = json_decode($post->similar);
 
 
         return view('posts.edit', compact('similar_posts', 'post','from', 'homepage','title', 'destined', 'points', 'similar'));
@@ -254,15 +254,15 @@ class PostController extends Controller
         }
 
 
-        $tips = "";
-        $tips_input = "";
-        $tips_input = $request->input(['tips']);
-        if ($request->input('tips')) {
-            for ($i = 1; $i < count($tips_input) + 1; $i++) {
-                $values  = join(",,", $tips_input);
-            }
-            $tips = $values;
-        }
+        // $tips = "";
+        // $tips_input = "";
+        // $tips_input = $request->input(['tips']);
+        // if ($request->input('tips')) {
+        //     for ($i = 1; $i < count($tips_input) + 1; $i++) {
+        //         $values  = join(",,", $tips_input);
+        //     }
+        //     $tips = $values;
+        // }
 
         
 
@@ -290,25 +290,25 @@ class PostController extends Controller
         //     }
         //     $tour_itinerary = $values;
         // }
-        $similar = "";
-        $similar_input = $request->input(['similar']);
-        if ($request->input('similar')) {
-            for ($i = 1; $i < count($similar_input) + 1; $i++) {
-                $values  = join(",,", $similar_input);
-            }
-            $similar = $values;
-        }
+        // $similar = "";
+        // $similar_input = $request->input(['similar']);
+        // if ($request->input('similar')) {
+        //     for ($i = 1; $i < count($similar_input) + 1; $i++) {
+        //         $values  = join(",,", $similar_input);
+        //     }
+        //     $similar = $values;
+        // }
 
         Post::where('id', $id)->update([
             'title' => $request->input('title'),
             'slug' => $request->input('slug'),
             'background_img' => $newBackgroundImage,
             'post_image' => $newPostImage,
-            'similar' => $similar,
+            'similar' => $request->input('similar'),
             'days' => $request->input('days'),
             'tagline' => $request->input('tagline'),
             'description' => $request->input('description'),
-            'tips' => $tips,
+            'tips' => $request->input('tips'),
             // 'from_to' => $from_to,
             'from_to' => $request->input('from_to'),
             'tour_itinerary' => $request->input('tour_itinerary'),

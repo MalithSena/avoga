@@ -60,7 +60,8 @@
                                                 method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2"
+                                                <input type="submit"
+                                                    class="text-red-600 hover:text-red-900 mb-2 mr-2 disabled:opacity-50"
                                                     value="Delete">
                                             </form>
                                         </td>

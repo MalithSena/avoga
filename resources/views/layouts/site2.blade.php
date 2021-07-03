@@ -101,7 +101,7 @@
               <a href="tel:+{{ $homepage->contact_no_1 }}"><i class="icon-phone"></i></i>
                 +{{ $homepage->contact_no_1 }}</a><a href="tel:+{{ $homepage->contact_no_2 }}"><i
                   class="icon-phone"></i>
-                +{{ $homepage->contact_no_1 }}</a>
+                +{{ $homepage->contact_no_2}}</a>
 
             </div>
             <div class="clearfix float-right contact-head" id="contact-head-mb">

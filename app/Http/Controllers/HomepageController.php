@@ -19,7 +19,8 @@ class HomepageController extends Controller
     public function index()
     {
         $homepages = Homepage::all();
-        return view('homepage.index', compact('homepages'));
+        $count = Homepage::count();
+        return view('homepage.index', compact('homepages', 'count'));
     }
 
     /**
@@ -139,6 +140,8 @@ class HomepageController extends Controller
 
         Homepage::where('id', $id)->update([
             'name' => $request->input('name'),
+            'contact_no_1' => $request->input('contact_no_1'),
+            'contact_no_2' => $request->input('contact_no_2'),
             'video' => $newVideo,
             'tagline_bg' => $request->input('tagline_bg'),
             'tagline_sm' => $request->input('tagline_sm'),

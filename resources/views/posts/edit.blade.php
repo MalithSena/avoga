@@ -71,8 +71,9 @@
                         {{-- {{ $post->find($similar)->title }} --}}
                         @for($i=1; $i < 4; $i++) <select name="similar[]" id="similar" class="form-control">
                             @foreach ($similar_posts as $value)
-                            <option value="{{ $value->id }}" @if ($similar !=NULL || $similar_posts->find($similar[$i-1]
-                                == $value->id)) selected="selected" @endif>
+                            <option value="{{ $value->id }}" @if ($similar !=NULL && $similar_posts->find($similar[$i-1]
+                                == $value->id)) selected="selected" @elseif($similar == Null)
+                                {{ "No posts to display" }} @endif>
                                 {{ $value->title }}
                             </option>
                             @endforeach
@@ -113,10 +114,11 @@
                     </div>
                     @if(empty($post->tips))
                     <div class="px-4 py-5 bg-white sm:p-6">
-                        @for($i=1; $i <= 5; $i++) <label for="tips" class="block font-medium text-sm text-gray-700">
+                        @for($i=0; $i < 5; $i++) <label for="tips" class="block font-medium text-sm text-gray-700">
                             Tips</label>
                             <input type="text" name="tips[]" id="tips" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ "Tip " . $i }}" />
+                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                value="{{ "Tip " . $i + 1 }}" />
                             @endfor
                     </div>
                     @else
@@ -124,10 +126,10 @@
                     <div class="px-4 py-5 bg-white sm:p-6">
                         <label for="tips" class="block font-medium text-sm text-gray-700">Tips</label>
 
-                        @for($i=1; $i
-                        <= 5; $i++) <input type="text" name="tips[]" id="tips" type="text"
+                        @for($i=0; $i
+                        < 5; $i++) <input type="text" name="tips[]" id="tips" type="text"
                             class="form-input rounded-md shadow-sm mt-1 block w-full"
-                            value="{{ old('points', $points[$i-1])}}" />
+                            value="{{ old('points', $points[$i]  )}}" />
                         @endfor
 
                     </div>

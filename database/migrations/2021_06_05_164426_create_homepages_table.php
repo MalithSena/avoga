@@ -16,11 +16,11 @@ class CreateHomepagesTable extends Migration
         Schema::create('homepages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('contact_no_1');
-            $table->string('contact_no_2');
+            $table->string('contact_no_1')->nullable();
+            $table->string('contact_no_2')->nullable();
             $table->text('video')->nullable();
-            $table->string('tagline_bg');
-            $table->string('tagline_sm');
+            $table->string('tagline_bg')->nullable();
+            $table->string('tagline_sm')->nullable();
             $table->string('link_redirect')->nullable();
             $table->integer('itinerary1')->nullable();
             $table->integer('itinerary2')->nullable();

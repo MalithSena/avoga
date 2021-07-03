@@ -6,7 +6,8 @@
   <div class="item height25vh" id="vid">
 
 
-    <video class="embed-responsive video" src="{{asset('img/avoga_1.mp4')}}" muted loop autoplay></video>
+    {{-- <video class="embed-responsive video" src="{{asset('img/avoga_1.mp4')}}" muted loop autoplay></video> --}}
+    <video class="embed-responsive video" src="{{asset($homepage->video)}}" muted loop autoplay></video>
 
 
 
@@ -20,14 +21,14 @@
     <div class="caption-top caption-top-mb" style="margin-bottom: 20%" data-timeout="800">
       {{-- The text class mentioned before is custom made by developer. It's not inheriting from the original template --}}
       <div class="text page-head-caption container">
-        <h2>Avoga Holidays</h3>
+        <h2>{{ $homepage->tagline_bg }}</h3>
           {{-- <h2 style="text-shadow: 2px 2px 5px  #363636;" class="big-title mb-10 animate" data-animation="fadeInRight" data-timeout="800">Avoga Holidays</h2> --}}
-          <h3>Discover Sri Lanka</h3>
+          <h3>{{ $homepage->tagline_sm }}</h3>
           {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat.</p> --}}
-          <a href="#packages">Explore More</a>
+          <a href="#packages">{{ $homepage->link_redirect }}</a>
       </div>
     </div>
 
@@ -201,21 +202,22 @@
     </div>
 
     <div class="row">
-      @if ($post->find(1))
+      @if ($post->find($homepage->itinerary1))
       <div class="col-md-6 col-lg-4">
         <div class="tour-item">
-          <a href="{{ route('itinerary', $post->find(1)) }}">
+          <a href="{{ route('itinerary', $post->find($homepage->itinerary1)) }}">
             <div class="img-wrap">
-              <img src="{{$post->find(1)->post_image}}" class="lazyload" alt="{{$post->find(1)->title}}">
+              <img src="{{$post->find($homepage->itinerary1)->post_image}}" class="lazyload"
+                alt="{{$post->find($homepage->itinerary1)->title}}">
               <!--<p class="price">1450 $</p>-->
             </div>
           </a>
           <div class="caption">
-            <a href="{{ route('itinerary', $post->find(1)) }}">
-              <p class="title">{{$post->find(1)->title}}</p>
+            <a href="{{ route('itinerary', $post->find($homepage->itinerary1)) }}">
+              <p class="title">{{$post->find($homepage->itinerary1)->title}}</p>
             </a>
             <p class="date"><span class="ti-calendar"></span><?php echo date("Y/m/d") ?></p>
-            <p class="time"><span class="ti-time"></span>{{$post->find(1)->days}} days</p>
+            <p class="time"><span class="ti-time"></span>{{$post->find($homepage->itinerary1)->days}} days</p>
           </div>
         </div>
       </div>
