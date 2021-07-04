@@ -1,3 +1,5 @@
+<p align="center">This project is an ongoing project for a tour agent in Sri Lanka to promote his business and facilitate him in managing his site with adding new itineraries, changing the home page with the backend provided. In a future update, Client Management and Tour Management pages will be added to easily manage the tour schedules, Manage Client details and Manage revenues and annual statistics. </p>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -7,7 +9,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-This project is an ongoing project for a tour agent in Sri Lanka to promote his business and facilitate him in managing his site with adding new itineraries, changing the home page with the backend provided. In a future update, Client Management and Tour Management pages will be added to easily manage the tour schedules, Manage Client details and Manage revenues and annual statistics. 
+
 
 ## About Laravel
 
